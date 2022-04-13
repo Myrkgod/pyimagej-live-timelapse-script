@@ -1,5 +1,5 @@
 from glob import glob
-import imagej, tifffile, time, argparse
+import imagej, time, argparse
 import numpy as np
 
 parser = argparse.ArgumentParser()
@@ -23,7 +23,7 @@ parser.add_argument('--layer_buffer', type=int, default=2,
     help='Amount of layers to leave out when processing new files')       
 args = parser.parse_args()  
 
-ij = imagej.init('sc.fiji:fiji:2.3.1')
+# ij = imagej.init('sc.fiji:fiji:2.3.1')
 channel_list = args.channels.split(',')
 
 def fetch_files():
@@ -44,4 +44,5 @@ def fetch_files():
             yield file_list
         time.sleep(args.fetch_interval)
 
-print(fetch_files)
+for file in fetch_files():
+    print(file)
