@@ -23,7 +23,7 @@ parser.add_argument('--layer_buffer', type=int, default=2,
     help='Amount of layers to leave out when processing new files')       
 args = parser.parse_args()  
 
-# ij = imagej.init('sc.fiji:fiji:2.3.1')
+ij = imagej.init('sc.fiji:fiji:2.3.1')
 channel_list = args.channels.split(',')
 
 def fetch_files():
